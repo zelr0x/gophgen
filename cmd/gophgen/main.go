@@ -20,7 +20,7 @@ func main() {
 	server.Serve(getPort())
 }
 
-// getPort parses command-line arguments and returns port number to use
+// getPort parses command-line arguments and returns port number to use.
 func getPort() uint16 {
 	if len(os.Args) > 1 {
 		if p, err := strconv.ParseUint(os.Args[1], 10, 16); err == nil && p > lastReserved {

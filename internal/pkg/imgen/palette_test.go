@@ -39,14 +39,14 @@ func TestGetColor(t *testing.T) {
 
 	for _, test := range tests {
 		color, exists := testPalette.getColor(test.inputColorName)
-		assert.Equal(color, test.expectedColor, "Colors don't match")
+		assert.Equal(test.expectedColor, color, "Colors don't match")
 		var msg string
 		if exists {
 			msg = "Returned color that is not present in the palette."
 		} else {
 			msg = "Didn't find color that is present in the palette."
 		}
-		assert.Equal(exists, test.expectedExists, msg)
+		assert.Equal(test.expectedExists, exists, msg)
 	}
 }
 

@@ -12,7 +12,8 @@ const (
 	// defaultPort defines a port to use when none is specified on start.
 	defaultPort uint16 = 8080
 	// lastReserved is the highest reserved port number.
-	lastReserved = 1024
+	// uint64 is used to simplify comparison after Parseuint.
+	lastReserved uint64 = 1024
 )
 
 // main starts the server on port.

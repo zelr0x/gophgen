@@ -43,6 +43,6 @@ func TestGetPort(t *testing.T) {
 
 	for _, test := range tests {
 		os.Args = []string{"cmd", test.input}
-		assert.Equal(getPort(), test.expected)
+		assert.Equal(getPort(), test.expected, "Wrong port number.")
 	}
 }

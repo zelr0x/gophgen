@@ -18,6 +18,10 @@ func TestGetPort(t *testing.T) {
 	}{
 		{"\000", defaultPort},
 		{"\n", defaultPort},
+		{"\r", defaultPort},
+		{"\n\r", defaultPort},
+		{"\r\n", defaultPort},
+		{"嘊", defaultPort},
 		{"", defaultPort},
 		{"a", defaultPort},
 		{"asmdo8j120ed9kad", defaultPort},

@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGetColor(t *testing.T) {
+func TestGetColorInternal(t *testing.T) {
 	assert := assert.New(t)
 	testPalette := &x11
 	nilRGBA := color.RGBA{0, 0, 0, 0}
@@ -50,7 +50,7 @@ func TestGetColor(t *testing.T) {
 	}
 }
 
-func TestRandom(t *testing.T) {
+func TestRandomInternal(t *testing.T) {
 	testPalette := &x11
 	testCases := 10
 	tests := make([]color.RGBA, 0, testCases)

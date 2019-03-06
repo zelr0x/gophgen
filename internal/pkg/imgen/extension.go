@@ -18,8 +18,6 @@ const (
 func (e Extension) Mime() string {
 	main := "image/"
 	switch e {
-	case PNG:
-		return main + "png"
 	case JPEG:
 		return main + "jpeg"
 	case GIF:

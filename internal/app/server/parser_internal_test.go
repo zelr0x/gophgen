@@ -56,7 +56,7 @@ func TestParseSize(t *testing.T) {
 		{"65535", defaultSize},
 		{"65636", defaultSize},
 		{"1000000000000", defaultSize},
-		{"1024", imgen.Size{1024, 1024}},
+		{"1024", imgen.Size{Width: 1024, Height: 1024}},
 	}
 
 	ch := make(chan imgen.Size)
@@ -72,9 +72,9 @@ func TestParseSize(t *testing.T) {
 		input        string
 		expectedSize imgen.Size
 	}{
-		{"-1", imgen.Size{1, 1}},
-		{"10", imgen.Size{10, 10}},
-		{"10x10", imgen.Size{10, 10}},
+		{"-1", imgen.Size{Width: 1, Height: 1}},
+		{"10", imgen.Size{Width: 10, Height: 10}},
+		{"10x10", imgen.Size{Width: 10, Height: 10}},
 	}
 
 	for _, test := range imageOnlyTests {

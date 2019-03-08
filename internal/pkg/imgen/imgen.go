@@ -13,11 +13,11 @@ const (
 	// DefaultIsIdenticon defines if images should be identicons by default.
 	DefaultIsIdenticon = false
 	// MinIdenticonWidth defines minimum image width.
-	MinIdenticonWidth uint16 = 16
+	MinIdenticonWidth int = 16
 	// MaxWidth defines maximum image width.
-	MaxWidth uint16 = 4096
+	MaxWidth int = 4096
 	// MaxHeight defines maximum image height.
-	MaxHeight uint16 = 2160
+	MaxHeight int = 2160
 	// defaultWidth defines default image width.
 	defaultWidth uint16 = 64
 	// defaultHeight defines default image height.

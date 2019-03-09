@@ -30,7 +30,7 @@ func TestServe(t *testing.T) {
 	for _, test := range methodTests {
 		req, err := http.NewRequest(test.method, "/", nil)
 		router.ServeHTTP(res, req)
-		assert.Equal(nil, err, "An error occured upon receiving a request.")
+		assert.Equal(nil, err, "An error occurred upon receiving a request.")
 		assert.Equal(test.expectedHttpCode, res.Code, "Wrong status code.")
 	}
 }

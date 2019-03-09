@@ -50,7 +50,7 @@ func RandomColor() color.RGBA {
 }
 
 // RandomPaleColor returns random pale color.RGBA.
-// TODO: Implement this feature.
+// TODO: implement this feature.
 func RandomPaleColor() color.RGBA {
 	return defaultPalette.random()
 }

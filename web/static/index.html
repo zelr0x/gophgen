@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GOPHGEN</title>
+  <link rel="icon" href="/i/32">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <h1>Go PlaceHolder Generator</h1>
+  </header>
+  <main>
+    <h2>Create placeholders and identicons right in the html <code>img</code> tag!</h2>
+    <h5 id="rules">There are a few rules:</h5>
+    <p>
+      <ol>
+        <li>Specify identicon with "i" if you don't want a simple rectangle</li>
+        <li>Specify width or WxH. Other parameters can't be specified without width. If omitted, default of 64x64 is used</li>
+        <li>Specify background color first if you want to specify foreground color</li>
+        <li>Seed data can be specified after <code>"d="</code></li>
+        <li>Preserve order</li>
+      </ol>
+    </p>
+    <h2>Examples</h2>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"http://localhost:8080/i/64"</span><span
+        class="red">&gt;</red>
+    </code><br>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"http://localhost:8080/i"</span><span
+        class="red">&gt;</red>
+    </code><br>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"http://localhost:8080/i/64/53f"</span><span
+        class="red">&gt;</red>
+    </code><br>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"localhost:8080/i/64/099b8c/bc3a1a/d=UserName"</span><span
+        class="red">&gt;</red>
+    </code><span>&nbsp;&nbsp;<-- big one</span><br>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"http://localhost:8080/i/64/53f/fuchsia"</span><span
+        class="red">&gt;</red>
+    </code><br>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"http://localhost:8080/89ff/d=UserName120"</span><span
+        class="red">&gt;</red>
+    </code>&nbsp;&nbsp;<-- random square, subsequent parameters are ignored because width is omitted<br>
+    <code>
+      <span class="red">&lt;img</span> <span class="yellow">src</span>=<span class="cyan">"http://localhost:8080/128x32/dark-goldenrod/d=UserName120"</span><span
+        class="red">&gt;</red>
+    </code><br>
+
+    <img src="http://localhost:8080/i/64" alt="64x64 random identicon">
+    <img src="http://localhost:8080/i" alt="random identicon of default size (64x64)">
+    <img src="http://localhost:8080/i/64/53f" alt="64x64 random identicon with background color of #5533ff">
+    <img src="http://localhost:8080/i/128/099b8c/bc3a1a/d=UserName125" alt="128x128 identicon for UserName125 with colors #099b8c and #bc3a1aff">
+    <img src="http://localhost:8080/i/64/53f/fuchsia" alt='128x128 identicon with colors #5533ff and "fuchsia" random seed'>
+    <img src="http://localhost:8080/89ff/d=UserName120" alt="random square because width was omitted">
+    <img src="http://localhost:8080/128x32/dark-goldenrod/d=UserName120" alt="128x32 rectange for UserName120 of dark-goldenrod color">
+    <br><br>
+    <h2>API</h2>
+    <p><code>origin[/i]/width[xHeight][[[/bgColor][/fgColor]][/extension][d=data]]</code></p>
+    <p>
+      <ol>
+        <li><span class="yellow">"i"</span> - optional. Flag to generate identicon. String, no quotes</li>
+        <li>Size:
+          <ol>
+            <li><span class="yellow">Width</span> - required. Integer (1-4096)</li>
+            <li><span class="yellow">Height</span> - optional. Add <code><span class="cyan">x</span></code> as a
+              delimeter (e.g. <code><span class="cyan">128x64</span></code>) between width and height. Otherwise
+              height is the same as width</li>
+          </ol>
+        </li>
+        <li>Color:</li>
+        <ol>
+          <li><span class="yellow">Background Color</span> - optional. Hexadecimal number like <code><span class="cyan">#099b8c</span></code>
+            or a string like <code><span class="cyan">red</span></code></li>
+          <li><span class="yellow">Foreground Color</span> - optional. Should be used only with preceding background
+            color</li>
+        </ol>
+        <li><span class="yellow">Extension</span> - optional. Can be <code><span class="cyan">png</code></span>, <code><span
+              class="cyan">jpeg</code></span> or <code><span class="cyan">gif</code></span></li>
+        <li><span class="yellow">Data</span> - optional, should be prepended with <code><span class="cyan">d=</span></code>.
+          Data is used as a seed for identicon generator, which is useful for creating avatars</li>
+      </ol>
+    <p>
+
+  </main>
+  <footer>
+    <p>Thanks to <a href="">caixw</a> for <a href="https://github.com/issue9/identicon">identicon generator</a></p>
+  </footer>
+
+  <style>
+    html,
+    body {
+      color: #e1e1e1;
+      background-color: #1e1e1e;
+      height: auto !important;
+      max-width: 100%;
+      overflow-x: hidden;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    header {
+      clear: both;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 4em;
+      background-color: #121212;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    h1 {
+      padding-left: 5%;
+    }
+
+    main {
+      max-width: 86%;
+      margin: auto;
+      position: relative;
+      margin-top: 4.8em;
+      margin-bottom: 3em;
+    }
+
+    #rules {
+      margin-top: 0.8em;
+      margin-bottom: -10px;
+    }
+
+    img {
+      padding-top: 1em;
+    }
+
+    code {
+      font-family: Monaco, "Monaco for powerline", "DejaVu Sans Mono", monospace;
+      color: #e1e1e1;
+      background-color: #121212;
+      line-height: 100%;
+      padding: 0.2em;
+      letter-spacing: -0.05em;
+      word-break: normal;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    footer {
+      clear: both;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: 2em;
+      background-color: #121212;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    footer>p {
+      bottom: 0;
+      margin-top: 1em;
+    }
+
+    span.red {
+      color: #bc3a1a;
+    }
+
+    span.yellow {
+      color: #e0a526;
+    }
+
+    span.cyan {
+      color: #099b8c;
+    }
+
+    a {
+      position: relative;
+      display: inline-block;
+      transition: .3s;
+      text-decoration: none;
+      color: #e0a526;
+    }
+
+    a::after {
+      position: absolute;
+      bottom: .3em;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: #bc3a1a;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    a:hover::after {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    a:hover {
+      color: #f4a85b;
+    }
+
+    /* https://codepen.io/chriscoyier/pen/yjxpVp/ */
+    ol {
+      list-style: none;
+      counter-reset: my-awesome-counter;
+    }
+
+    ol li {
+      counter-increment: my-awesome-counter;
+    }
+
+    ol li::before {
+      content: counter(my-awesome-counter) ". ";
+      color: #bc3a1a;
+      font-weight: bold;
+    }
+  </style>
+
+</body>
+
+</html>

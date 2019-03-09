@@ -8,8 +8,8 @@ Placeholders are a necessity when writing web apps. Gophgen gives you a simple A
 ### Install
 `go get -u github.com/zelr0x/gophgen/...`
 ### Usage
-Simply run the server `$GOPATH/bin/gophgen` and type the `localhost:port/parameters` into `src` attribute of your `img` tags.
-Default port is 8080 but you can set it to any unreserved port on startup: `gophgen 5555`.
+Simply run the server at `$GOPATH/bin/gophgen` and type the `localhost:port/parameters` into `src` attribute of your `img` tags.
+Default port is `8080` but you can set it to any unreserved port on startup: `gophgen 5555`.
 
 Change `parameters` to what you want that image to be.
 #### Identicon specifier

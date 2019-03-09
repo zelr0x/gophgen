@@ -1,5 +1,6 @@
 # gophgen
 [![Go Report Card](https://goreportcard.com/badge/github.com/zelr0x/gophgen)](https://goreportcard.com/report/github.com/zelr0x/gophgen)
+
 ![example](https://github.com/zelr0x/gophgen/blob/master/example.png?raw=true)
 ## A simple placeholder & identicon generator
 Placeholders are a necessity when writing web apps. Gophgen gives you a simple API for fast and autonomous placeholder creation right in your html. 

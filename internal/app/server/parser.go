@@ -72,12 +72,13 @@ func parseColor(s string, colCh chan color.RGBA) {
 		colCh <- imgen.Hex2rgba(strings.Join(matches, ""))
 		return
 	}
+
 	colCh <- imgen.RandomColor()
 }
 
-// parseExt tries to extract imgen.Extension from a string s, returns imgen.defExt on fail.
+// parseExt tries to extract imgen.Extension from a string s.
 func parseExt(s []string, extCh chan imgen.Extension) {
-	var ext imgen.Extension
+	var ext imgen.Extension // Correct default value is provided by iota.
 	for _, str := range s {
 		k, exists := imgen.GetExtension(str)
 		if exists {

@@ -1,11 +1,14 @@
 # gophgen
+[![Build Status](https://travis-ci.org/zelr0x/gophgen.svg?branch=master)](https://travis-ci.org/zelr0x/gophgen)
 [![Go Report Card](https://goreportcard.com/badge/github.com/zelr0x/gophgen)](https://goreportcard.com/report/github.com/zelr0x/gophgen)
 
 ![example](https://github.com/zelr0x/gophgen/blob/master/example.png?raw=true)
 ## A simple placeholder & identicon generator
-Placeholders are a necessity when writing web apps. Gophgen gives you a simple API for fast and autonomous placeholder creation right in your html. 
+Placeholders are a necessity when writing web apps. Gophgen gives you a simple API for fast and autonomous placeholder creation right in your html.
+### Install
+go get -u github.com/zelr0x/gophgen/...
 ### Usage
-Simply run the server and type the `localhost:port/parameters` into `src` attribute of your `img` tags.
+Simply run the server `$GOPATH/bin/gophgen` and type the `localhost:port/parameters` into `src` attribute of your `img` tags.
 Default port is 8080 but you can set it to any unreserved port on startup: `gophgen 5555`.
 
 Change `parameters` to what you want that image to be.

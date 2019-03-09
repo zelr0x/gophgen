@@ -20,9 +20,8 @@ func initRandom() {
 func DefaultData(isIdenticon bool) []byte {
 	if isIdenticon {
 		return randomBytes(int(defaultDataSize))
-	} else {
-		return randomBytes(int(defaultDataSize))
 	}
+	return randomBytes(int(defaultDataSize))
 }
 
 // hex2uint8 converts given string containing hexadecimal integer to uint8.

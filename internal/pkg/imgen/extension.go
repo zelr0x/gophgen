@@ -9,8 +9,11 @@ import "strings"
 type Extension uint8
 
 const (
+	// PNG is a default image extension in imgen.
 	PNG Extension = iota
+	// JPEG is another image extension supported by imgen.
 	JPEG
+	// GIF is another image extension supported by imgen.
 	GIF
 )
 

@@ -6,7 +6,7 @@
 ## A simple placeholder & identicon generator
 Placeholders are a necessity when writing web apps. Gophgen gives you a simple API for fast and autonomous placeholder creation right in your html.
 ### Install
-go get -u github.com/zelr0x/gophgen/...
+`go get -u github.com/zelr0x/gophgen/...`
 ### Usage
 Simply run the server `$GOPATH/bin/gophgen` and type the `localhost:port/parameters` into `src` attribute of your `img` tags.
 Default port is 8080 but you can set it to any unreserved port on startup: `gophgen 5555`.
